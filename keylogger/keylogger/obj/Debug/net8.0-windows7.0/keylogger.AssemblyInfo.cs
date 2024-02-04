@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("keylogger")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+12aae61bb7d6f99209168cd6c4a6c75a5b69f0ab")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e708840ec6690e201c750947595162d1753da36d")]
 [assembly: System.Reflection.AssemblyProductAttribute("keylogger")]
 [assembly: System.Reflection.AssemblyTitleAttribute("keylogger")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

