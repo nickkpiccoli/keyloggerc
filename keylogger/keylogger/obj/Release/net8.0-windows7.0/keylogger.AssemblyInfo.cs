@@ -12,9 +12,9 @@ using System;
 using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("keylogger")]
-[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e2d05864e1a82fd813dde4371f5b755f63dc79c5")]
 [assembly: System.Reflection.AssemblyProductAttribute("keylogger")]
 [assembly: System.Reflection.AssemblyTitleAttribute("keylogger")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

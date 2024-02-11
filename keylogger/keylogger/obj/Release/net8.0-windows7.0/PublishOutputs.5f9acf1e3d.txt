@@ -1,0 +1,6 @@
+C:\Users\picco\OneDrive\Desktop\provaRelease\keylogger.exe
+C:\Users\picco\OneDrive\Desktop\provaRelease\keylogger.dll
+C:\Users\picco\OneDrive\Desktop\provaRelease\keylogger.deps.json
+C:\Users\picco\OneDrive\Desktop\provaRelease\keylogger.runtimeconfig.json
+C:\Users\picco\OneDrive\Desktop\provaRelease\keylogger.pdb
+C:\Users\picco\OneDrive\Desktop\provaRelease\Newtonsoft.Json.dll
