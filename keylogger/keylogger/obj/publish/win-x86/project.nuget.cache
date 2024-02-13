@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "k/31sTzjYRq0mPPaLxcRrS0/7W/2Z4+CI8pacLeZPo/HKI39AgDBJuCv8T/OLZCr/345H43Ft2rjoLs8yU9gig==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\picco\\OneDrive\\Desktop\\università\\magistrale\\cybersec\\keyloggerc\\keylogger\\keylogger\\keylogger.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\picco\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.0\\microsoft.net.illink.tasks.8.0.0.nupkg.sha512",
+    "C:\\Users\\picco\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\picco\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\8.0.0\\microsoft.netcore.app.runtime.win-x86.8.0.0.nupkg.sha512",
+    "C:\\Users\\picco\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x86\\8.0.0\\microsoft.windowsdesktop.app.runtime.win-x86.8.0.0.nupkg.sha512",
+    "C:\\Users\\picco\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\8.0.0\\microsoft.aspnetcore.app.runtime.win-x86.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

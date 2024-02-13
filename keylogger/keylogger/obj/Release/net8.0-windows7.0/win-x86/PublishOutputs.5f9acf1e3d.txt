@@ -1,0 +1,7 @@
+C:\Users\picco\OneDrive\Desktop\provaRelease\keylogger.pdb
+C:\Users\picco\OneDrive\Desktop\provaRelease\D3DCompiler_47_cor3.dll
+C:\Users\picco\OneDrive\Desktop\provaRelease\PenImc_cor3.dll
+C:\Users\picco\OneDrive\Desktop\provaRelease\PresentationNative_cor3.dll
+C:\Users\picco\OneDrive\Desktop\provaRelease\vcruntime140_cor3.dll
+C:\Users\picco\OneDrive\Desktop\provaRelease\wpfgfx_cor3.dll
+C:\Users\picco\OneDrive\Desktop\provaRelease\keylogger.exe

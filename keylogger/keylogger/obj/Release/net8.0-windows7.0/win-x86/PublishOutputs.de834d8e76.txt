@@ -1,0 +1,7 @@
+C:\Users\picco\OneDrive\Desktop\università\magistrale\cybersec\keyloggerc\provaRelease\keylogger.pdb
+C:\Users\picco\OneDrive\Desktop\università\magistrale\cybersec\keyloggerc\provaRelease\D3DCompiler_47_cor3.dll
+C:\Users\picco\OneDrive\Desktop\università\magistrale\cybersec\keyloggerc\provaRelease\PenImc_cor3.dll
+C:\Users\picco\OneDrive\Desktop\università\magistrale\cybersec\keyloggerc\provaRelease\PresentationNative_cor3.dll
+C:\Users\picco\OneDrive\Desktop\università\magistrale\cybersec\keyloggerc\provaRelease\vcruntime140_cor3.dll
+C:\Users\picco\OneDrive\Desktop\università\magistrale\cybersec\keyloggerc\provaRelease\wpfgfx_cor3.dll
+C:\Users\picco\OneDrive\Desktop\università\magistrale\cybersec\keyloggerc\provaRelease\keylogger.exe
